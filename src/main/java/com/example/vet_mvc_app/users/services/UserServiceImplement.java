@@ -55,10 +55,10 @@ public class UserServiceImplement implements UserService {
         User user = userRepository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
         /* System.out.println(jwtService.getUserDataFromToken().getId());*/
 
-        if (!request.getName().isEmpty()) {
+        if (request.getName()!=null &&!request.getName().isEmpty()) {
             user.setName(request.getName());
         }
-        if (!request.getEmail().isEmpty()) {
+        if (request.getEmail()!=null && !request.getEmail().isEmpty()) {
             user.setEmail(request.getEmail());
         }
         if (!(request.getRole() == null)) {
