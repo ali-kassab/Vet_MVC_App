@@ -55,10 +55,10 @@ public class UserServiceImplement implements UserService {
         User user = userRepository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
         /* System.out.println(jwtService.getUserDataFromToken().getId());*/
 
-        if (request.getName()!=null &&!request.getName().isEmpty()) {
+        if (request.getName() != null && !request.getName().isEmpty()) {
             user.setName(request.getName());
         }
-        if (request.getEmail()!=null && !request.getEmail().isEmpty()) {
+        if (request.getEmail() != null && !request.getEmail().isEmpty()) {
             user.setEmail(request.getEmail());
         }
         if (!(request.getRole() == null)) {
@@ -74,9 +74,11 @@ public class UserServiceImplement implements UserService {
 
     @Override
     public String deleteUser(Long id) {
-        if (userRepository.existsById(id)) {
-            userRepository.deleteById(id);
+        System.out.println(id);
+        if (!userRepository.existsById(id)) {
+            return "User Doesnt exist";
         }
+        userRepository.deleteById(id);
         return "User deleted successfully";
     }
 }
