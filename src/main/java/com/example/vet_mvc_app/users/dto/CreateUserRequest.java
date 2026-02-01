@@ -16,7 +16,7 @@ public class CreateUserRequest {
     @Size(min = 3, max = 50, message = "email must be between 3 - 50")
     private String email;
     @NotBlank
-    @Size(min = 6, max = 50, message = "password must be between 3 - 50")
+    @Size(min = 6, max = 50, message = "password must be between 6 - 50")
     private String password;
 
 }

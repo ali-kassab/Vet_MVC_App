@@ -85,7 +85,7 @@ public class SecurityConfig {
                         .requestMatchers("/css/**", "/js/**", "/images/**", "/webjars/**").permitAll()
                         .requestMatchers("/error", "/favicon.ico").permitAll()
                         .requestMatchers(HttpMethod.POST, "/api/auth/login").permitAll()
-                        .requestMatchers("/simple").permitAll()
+                        .requestMatchers("/HomePage").permitAll()
                         .anyRequest().authenticated());
 
         return http.build();

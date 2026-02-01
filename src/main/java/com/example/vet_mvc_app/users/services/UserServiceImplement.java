@@ -44,7 +44,7 @@ public class UserServiceImplement implements UserService {
     public String createUser(CreateUserRequest request) {
 
         if (userRepository.existsByEmail(request.getEmail())) {
-            return "User with email " + request.getEmail() + " already exists";
+            throw  new ResponseStatusException(HttpStatus.BAD_REQUEST, "Email already exists");
         }
         User user = new User(
                 request.getName(),
