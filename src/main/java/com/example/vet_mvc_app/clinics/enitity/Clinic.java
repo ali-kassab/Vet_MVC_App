@@ -45,9 +45,11 @@ public class Clinic {
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "vet_id", nullable = false)
     private User vet;
+
     @CreatedDate
     @Column(name = "createdAt")
     private Instant createdAt;
+
     @LastModifiedDate
     @Column(name = "updatedAt")
     private Instant updatedAt;
